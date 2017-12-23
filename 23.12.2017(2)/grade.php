@@ -42,7 +42,8 @@
 
               $sql = "SELECT * from odgovor o, vprasanje v,kategorija k,vprasalnik vpr where o.id_vprasanje=v.id_vprasanje and v.id_kategorije=k.id_kategorija and k.id_vprasalnik=vpr.id_vprasalnik and id_odgovor=$value";
               $rez = $conn->query($sql);
-              if ($rez->num_rows > 0) {
+              
+              if ($rez != null && $rez->num_rows > 0) {
                   while($row = $rez->fetch_assoc()) {
                     pisiConsola('id_vprasanje:'. $row["id_vprasanje"] . ' vprasanje:' . $row["vprasanje"] . ' id_odgovor:' . $row["id_odgovor"]  . ' opis:' . $row["opis"]. ' vrednost:' . $row["vrednost"] . ' id_kategorija:' . $row["id_kategorija"] . ' ime_kategorije:' . $row["ime_kategorije"] );
                     if($row["ime_kategorije"] == "Kognitivna lestvica"){

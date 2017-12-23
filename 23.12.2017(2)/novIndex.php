@@ -24,7 +24,7 @@
 		<p> EMSO: <input type="text" name="emso"  value="12345"></p>
 		<p>DATUM:<input type="date" name="datum"> </p>
 		<p>VPRASALNIK:
-			<input type="text" id="vprasalnik" value="MSQOL-54" onload="spremeniAnketo()"  >  
+			<input type="text" id="vprasalnik" name="vprasalnik" value="MSQOL-54" onload="spremeniAnketo()"  >  
 		</p>
         <ol>
         	<li name="najdi" class="primerVprasanja" hidden>
@@ -85,7 +85,7 @@ mb_internal_encoding("UTF-8");
 function neki($vprasalnik='%MSQOL-54%')
 	{
       	include 'povezava.php';
-		$sql = "SELECT count(*) from vprasalnik v, vprasanje v1,kategorija k where v.id_vprasalnik=v1.id_vprasalnika AND v1.id_kategorije=k.id_kategorija and naslov like '%MSQOL%'";
+		$sql = "SELECT count(*) from vprasalnik v, vprasanje v1,kategorija k where v.id_vprasalnik=v1.id_vprasalnika AND v1.id_kategorije=k.id_kategorija and naslov like '%". $vprasalnik."%'";
 		$rez = $conn->query($sql);
 		if ($rez->num_rows > 0) {
 		    while($row = $rez->fetch_assoc()) {
@@ -99,7 +99,8 @@ function neki($vprasalnik='%MSQOL-54%')
 		}
 	}
 
-neki();
+
+neki($vprasalnik);
 
 ?> 
 </script>
