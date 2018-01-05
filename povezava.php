@@ -10,4 +10,6 @@
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   }
+  mb_internal_encoding("UTF-8")
+
 ?>

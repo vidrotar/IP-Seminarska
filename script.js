@@ -15,7 +15,6 @@ function onLoad(p1, p2) {
 	    console.log(result);
 	  });
 	});
-	console.log("blaBla");
 }
 
 
