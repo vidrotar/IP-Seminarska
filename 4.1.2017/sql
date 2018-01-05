@@ -1,0 +1,12 @@
+SELECT * FROM `vpr_odg` WHERE datum = "2018-01-03 18:03:51"
+
+
+SELECT vprasanje.id_vprasanje,vprasanje.vprasanje,odgovor.id_odgovor,odgovor.odgovor FROM `vpr_odg`,vpasanje,odgovor WHERE datum = "2018-01-03 18:03:51" and vpr_odg.id_odgovor=odgovor.id_odgovor and vpr_odg.id_vprasanje=vprasanje.id_vprasanje
+
+
+SELECT vprasanje,opis,odgovor.id_odgovor FROM `vpr_odg`,odgovor,vprasanje where vpr_odg.id_odgovor=odgovor.id_odgovor
+							and vpr_odg.id_vprasanje=vprasanje.id_vprasanje and datum = "2018-01-03 18:03:51"
+
+
+
+							UPDATE vpr_odg SET id_odgovor = "100" WHERE vpr_odg.id_vprasanje="1" and vpr_odg.emso="123" and vpr_odg.datum >="2018-01-03 00:00:00"
